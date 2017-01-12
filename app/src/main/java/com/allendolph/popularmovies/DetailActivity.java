@@ -57,7 +57,7 @@ public class DetailActivity extends AppCompatActivity {
                 .into(mImageView);
 
         mTitleTextView.setText(mMovieResult.getTitle());
-        mReleaseDateTextView.setText(mMovieResult.getReleaseYear());
+        mReleaseDateTextView.setText(mMovieResult.getReleaseDate());
         mAvergeRatingTextView.setText(mMovieResult.getVoteAverage() + RATING_SUFFIX);
         mOverviewTextView.setText(mMovieResult.getOverview());
     }
