@@ -26,7 +26,7 @@ public class MovieResult implements Parcelable {
         b.putString("posterPath", posterPath);
         b.putBoolean("adult", adult);
         b.putString("overview", overview);
-        b.putString("relaseDate", releaseDate);
+        b.putString("releaseDate", releaseDate);
         b.putIntArray("genreIds", genreIds);
         b.putLong("id", id);
         b.putString("originalTitle", originalTitle);
@@ -112,16 +112,16 @@ public class MovieResult implements Parcelable {
         return releaseDate;
     }
 
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
     public String getReleaseYear() {
         if(releaseDate != null && releaseDate.length() >=4) {
             return releaseDate.substring(0, 4);
         } else {
             return "";
         }
-    }
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
     }
 
     @SerializedName("genre_ids")

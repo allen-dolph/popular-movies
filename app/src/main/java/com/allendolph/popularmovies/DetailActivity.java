@@ -14,6 +14,13 @@ import com.squareup.picasso.Picasso;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 
+/**
+ * Activity to show the details of a selected movie
+ *
+ *
+ * @author Allen Dolph
+ *
+ */
 public class DetailActivity extends AppCompatActivity {
 
     private static final String THUMBNAIL_SIZE = "w342";
