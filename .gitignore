@@ -39,3 +39,6 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Individual Files
+bfg-1.12.14.jar
