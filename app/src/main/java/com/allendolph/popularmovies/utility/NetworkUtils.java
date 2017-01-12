@@ -29,7 +29,7 @@ public class NetworkUtils {
     private static final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/movie";
 
     private static final String API_KEY_PARAM = "api_key";
-    private static final String API_KEY = "176d6874ad6ec4bc482d4481091d1524";
+    private static final String API_KEY = "";
 
     private static final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
 
