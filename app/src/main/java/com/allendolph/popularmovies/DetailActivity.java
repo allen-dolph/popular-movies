@@ -10,11 +10,12 @@ import android.widget.TextView;
 import com.allendolph.popularmovies.data.models.MovieResult;
 import com.allendolph.popularmovies.utility.NetworkUtils;
 
-
 import com.squareup.picasso.Picasso;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import java.net.URL;
-import java.text.SimpleDateFormat;
 
 /**
  * Activity to show the details of a selected movie
@@ -27,11 +28,12 @@ public class DetailActivity extends AppCompatActivity {
 
     private static final String THUMBNAIL_SIZE = "w342";
     private static String RATING_SUFFIX = "/10";
-    private ImageView mImageView;
-    private TextView mTitleTextView;
-    private TextView mReleaseDateTextView;
-    private TextView mAvergeRatingTextView;
-    private TextView mOverviewTextView;
+
+    @BindView(R.id.iv_movie_poster_detail_image) ImageView mImageView;
+    @BindView(R.id.tv_movie_title) TextView mTitleTextView;
+    @BindView(R.id.tv_movie_release_date) TextView mReleaseDateTextView;
+    @BindView(R.id.tv_movie_avg_rating) TextView mAvergeRatingTextView;
+    @BindView(R.id.tv_movie_overview) TextView mOverviewTextView;
 
     private MovieResult mMovieResult;
 
@@ -39,12 +41,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        mImageView = (ImageView) findViewById(R.id.iv_movie_poster_detail_image);
-        mTitleTextView = (TextView) findViewById(R.id.tv_movie_title);
-        mReleaseDateTextView = (TextView) findViewById(R.id.tv_movie_release_date) ;
-        mAvergeRatingTextView = (TextView) findViewById(R.id.tv_movie_avg_rating);
-        mOverviewTextView = (TextView) findViewById(R.id.tv_movie_overview);
+        ButterKnife.bind(this);
 
         Intent intent = getIntent();
 

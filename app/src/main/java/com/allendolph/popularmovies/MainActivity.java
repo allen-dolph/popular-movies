@@ -29,6 +29,9 @@ import com.allendolph.popularmovies.utility.MovieDbOrgJsonUtils;
 import com.allendolph.popularmovies.utility.NetworkUtils;
 import com.squareup.picasso.Picasso;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 /**
  * Activity that the application starts into
@@ -46,9 +49,9 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     public static final String MOVIE_RESULT_BUNDLE = "movieResult";
     public static final String IMAGE_SIZE = "w500";
 
-    private TextView mErrorMessageDisplay;
-    private RecyclerView mRecyclerView;
-    private ProgressBar mLoadingIndicator;
+    @BindView(R.id.tv_error_message_display) TextView mErrorMessageDisplay;
+    @BindView(R.id.recyclerview_movies) RecyclerView mRecyclerView;
+    @BindView(R.id.pb_loading_indicator) ProgressBar mLoadingIndicator;
 
     private MovieAdapter mMovieAdapter;
 
@@ -59,19 +62,10 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         mContext = this;
-
-        /* This is the Recycler view to hold our list of movie poster */
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_movies);
-
-        /* This TextView is used to display errors and will be hidden if there are no errors */
-        mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
-
-        /* This is the indicator that will show when the movie data is loading */
-        mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
         /*
          * LinearLayoutManager can support HORIZONTAL or VERTICAL orientations. The reverse layout
@@ -87,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
          * Use this setting to improve performance if you know that changes in content do not
          * change the child layout size in the RecyclerView
          */
-        //mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
 
         /*
          * The MovieAdapter is responsible for linking our movie data with the Views that
