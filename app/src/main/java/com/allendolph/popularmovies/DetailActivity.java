@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.allendolph.popularmovies.data.models.MovieResult;
 import com.allendolph.popularmovies.utility.NetworkUtils;
+
+
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;

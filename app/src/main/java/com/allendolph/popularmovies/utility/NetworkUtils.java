@@ -1,7 +1,10 @@
 package com.allendolph.popularmovies.utility;
 
+import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
+
+import com.allendolph.popularmovies.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +32,6 @@ public class NetworkUtils {
     private static final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/movie";
 
     private static final String API_KEY_PARAM = "api_key";
-    private static final String API_KEY = "";
 
     private static final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
 
@@ -40,10 +42,11 @@ public class NetworkUtils {
      *                simple sort of by popularity, or by top rated
      * @return The URL to use to query the themoviedb.org server.
      */
-    public static URL buildUrl(String tagPath) {
+    public static URL buildUrl(String tagPath, Context context) {
+        String apiKey = context.getString(R.string.tmdb_api_key);
         Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
                 .appendPath(tagPath)
-                .appendQueryParameter(API_KEY_PARAM, API_KEY)
+                .appendQueryParameter(API_KEY_PARAM, apiKey)
                 .build();
 
         URL url = null;

@@ -54,11 +54,15 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
     private String mSort = "popular";
 
+    private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        mContext = this;
 
         /* This is the Recycler view to hold our list of movie poster */
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_movies);
@@ -131,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
             }
 
             String tag = params[0];
-            URL movieRequestUrl = NetworkUtils.buildUrl(tag);
+            URL movieRequestUrl = NetworkUtils.buildUrl(tag, mContext);
 
             try {
                 String jsonMovieResponse = NetworkUtils
